@@ -63,7 +63,9 @@ class Rectangle:
     def __repr__(self):
         """Return string representation for eval"""
         return "@Rectangle({}, {})".format(self.__width, self.__height)
+
     def __del__(self):
-        """Prints a message when an instance is deleted and decrement instances"""
+        """Prints a message when an instance
+        is deleted and decrement instances"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
