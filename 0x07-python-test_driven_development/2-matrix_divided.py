@@ -1,29 +1,39 @@
 #!/usr/bin/python3
-"""This module provides a function to divide a matrix by a number."""
+"""
+This module is for dividing all elements of a matrix.
+Functions:
+    matrix_divided
+"""
 
 
 def matrix_divided(matrix, div):
     """
-    This function divides a matrix by a number.
-
-    Args:
-        matrix (list of list of int/float): The matrix to be divided.
-    div (int, float): The number to divide the matrix by.
-
-    Returns:
-        list of list of int/float: The resulting matrix.
+    Divide all elements of a matrix by a number and round to 2 decimal places.
     """
-    if not isinstance(matrix, list) or not ...
-    all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix ...
-                        (list of lists) of integers/floats")
-    if not all(isinstance(num, (int, float)) for row in matrix for num in row):
-        raise TypeError("matrix must be (list of lists) of integers/floats")
-    if not all(len(row) == len(matrix[0]) for row in matrix):
-        raise TypeError("Each row of the matrix must have the same size")
+    if not isinstance(matrix, list) or len(matrix) == 0:
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats")
+
+    num_cols = len(matrix[0])
+    for row in matrix:
+        if len(row) == 0:
+            raise TypeError(
+                "matrix must be a matrix (list of lists) of integers/floats")
+        if len(row) != num_cols:
+            raise TypeError("Each row of the matrix must have the same size")
+        if not all(isinstance(item, (int, float)) for item in row):
+            raise TypeError(
+                "matrix must be a matrix (list of lists) of integers/floats")
+
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
+
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    return [[round(num / div, 2) for num in row] for row in matrix]
+    new_matrix = []
+    for row in matrix:
+        new_row = [round(item / div, 2) for item in row]
+        new_matrix.append(new_row)
+
+    return new_matrix
