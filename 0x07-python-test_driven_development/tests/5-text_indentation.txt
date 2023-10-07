@@ -1,0 +1,44 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Import module:
+    >>> indent = __import__('5-text_indentation').text_indentation
+
+Test a string whitout ., ? and :
+    >>> indent("hello there")
+    hello there
+
+Test string whith ., ? and ::
+    >>> indent("What's ur name ?if it's:Bill.Just say it")
+    What's ur name ?
+    <BLANKLINE>
+    if it's:
+    <BLANKLINE>
+    Bill.
+    <BLANKLINE>
+    Just say it
+
+Test empty string:
+    >>> indent("")
+
+Test new line:
+    >>> indent("\n")
+    <BLANKLINE>
+
+Test delimiters:
+    >>> indent(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test other format:
+    >>> indent(98)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
