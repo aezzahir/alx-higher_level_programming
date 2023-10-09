@@ -1,33 +1,109 @@
-The '7-base_geometry' module
-============================
+The ''7-base_geometry' module
+==========================
 
-Using 'integer_validator'
+Using ''area and integer_validator'' 
 --------------------------
 
-Import function from module:
+Import class:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-Test valid integer:
-    >>> bg = BaseGeometry()
-    >>> bg.integer_validator("age", 25)
-
-Test invalid type (string):
-    >>> bg.integer_validator("name", "John")
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", "there")
     Traceback (most recent call last):
     ...
-    TypeError: name must be an integer
+    TypeError: age must be an integer
 
-Test invalid value (zero):
-    >>> bg.integer_validator("age", 0)
+Test integer_validator invalid valu:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", -4)
     Traceback (most recent call last):
     ...
     ValueError: age must be greater than 0
 
-Test invalid value (negative integer):
-    >>> bg.integer_validator("distance", -4)
+Test area methode:
+    >>> g3 = BaseGeometry()
+    >>> g3.area()
     Traceback (most recent call last):
     ...
-    ValueError: distance must be greater than 0
+    Exception: area() is not implemented
 
-Test with different name parameter:
-    >>> bg.integer_validator("width", 50)
+Test integer_validator invalid valu:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", (1, 2))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", {1, 2})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", [1, 2])
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", False)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", 3.15)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid value type:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", 10.0)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+Test integer_validator invalid valid arguments:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("age", 20)
+
+Test integer_validator invalid valid arguments:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator("", 20)
+
+Test integer_validator invalid valid arguments:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator(None, 20)
+
+Test integer_validator method arg with 0 args:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    
+Test integer_validator method arg with 3 args:
+    >>> g3 = BaseGeometry()
+    >>> g3.integer_validator(1, 1, 1)
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
