@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module contains the class MyList that inherits from list"""
 
+
 class MyList(list):
     """
     MyList class that inherits from list
@@ -11,6 +12,7 @@ class MyList(list):
         Prints the list in ascending order
         """
         print(sorted(self))
+
 
 if __name__ == "__main__":
     import doctest
