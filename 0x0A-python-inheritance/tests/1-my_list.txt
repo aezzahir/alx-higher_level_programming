@@ -1,0 +1,42 @@
+The '1-my_list' module
+==========================
+
+Using 'print_sorted'
+--------------------------
+
+Import function from module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Test empty list:
+    >>> my_list1 = MyList()
+    >>> my_list1.print_sorted()
+    []
+
+Test List of integers:
+    >>> my_list1 = MyList([1, 4, 2, 3, 5])
+    >>> my_list1.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Test basic 2:
+    >>> my_list1 = MyList([7, 5, 0])
+    >>> my_list1.print_sorted()
+    [0, 5, 7]
+
+Test a list with negative values : 
+    >>> my_list1 = MyList([3, -8, 2, 1, -9, -4])
+    >>> my_list1.print_sorted()
+    [-9, -8, -4, 1, 2, 3]
+    >>> my_list1
+    [3, -8, 2, 1, -9, -4]
+
+Test List already ordered: 
+    >>> my_list1 = MyList([1, 1, 2, 2, 3, 3])
+    >>> my_list1.print_sorted()
+    [1, 1, 2, 2, 3, 3]
+
+Test List functions:
+    >>> my_list1 = MyList()
+    >>> my_list1.append(20)
+    >>> my_list1
+    [20]
+
