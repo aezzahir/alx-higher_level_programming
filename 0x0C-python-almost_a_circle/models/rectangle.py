@@ -69,7 +69,19 @@ class Rectangle(Base):
             self.__height,
         )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
+        if not args and args is not []:
+            for name, value in kwargs.items():
+                if name == "id":
+                    self.id = value
+                if name == "x":
+                    self.setX(value)
+                if name == "y":
+                    self.setY(value)
+                if name == "width":
+                    self.setWidth(value)
+                if name == "height":
+                    self.setHeight(value)
         try:
             self.id = args[0]
             self.__width = args[1]
