@@ -69,27 +69,44 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-        """Print a representation of the Rectangle using '#' characters."""
-        str = "\n" * self.y
-        str = str + (" " * self.x + "#" * self.width + "\n") * self.height
-        print(str)
+        """Display the Rectangle."""
+        for i in range(self.__y):
+            print()
+        for i in range(self.__height):
+            print(self.__x * " " + self.__width * "#")
 
-    def __str__(self):
-        """Return a formatted string representation of the Rectangle."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height
+    def __str__(self) -> str:
+        """Display the Rectangle's informations."""
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id,
+            self._Rectangle__x,
+            self._Rectangle__y,
+            self._Rectangle__width,
         )
 
     def update(self, *args, **kwargs):
-        """Update the Rectangle attributes using args or kwargs."""
-        attributes = ["id", "width", "height", "x", "y"]
-        if args:
-            for attr, arg in zip(attributes, args):
-                setattr(self, attr, arg)
-        else:
-            for key, value in kwargs.items():
-                if key in attributes:
-                    setattr(self, key, value)
+        """Update the Rectangle's attributes."""
+        if not args and args is not []:
+            for name, value in kwargs.items():
+                if name == "id":
+                    self.id = value
+                if name == "x":
+                    self.setX(value)
+                if name == "y":
+                    self.setY(value)
+                if name == "width":
+                    self.setWidth(value)
+                if name == "height":
+                    self.setHeight(value)
+
+        try:
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+            self.__y = args[4]
+        except IndexError:
+            pass
 
     def to_dictionary(self):
         """Return a dictionary representation of the Rectangle."""
