@@ -35,6 +35,6 @@ class Base:
         my_list = []
         for instance in list_objs:
             my_list.append(instance.to_dictionary())
-        my_list = cls.to_json_string(my_list)
+        m_list = cls.to_json_string(my_list)
         with open("{}.json".format(cls.__name__), mode="w") as Myfile:
-            Myfile.write(my_list)
+            Myfile.write(m_list)
