@@ -1,4 +1,6 @@
--- lists all the tables of a database in your MySQL server.
-USE $1;
+-- 3-list_tables.sql
+
+USE $1; -- Use the first command-line argument as the database name
+
 SHOW TABLES;
 
