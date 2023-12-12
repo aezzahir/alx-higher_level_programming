@@ -1,14 +1,20 @@
 #!/usr/bin/node
-let big1 = 0; let big2 = 0;
-let i = 0;
-while (i < process.argv.length - 1) {
-  if (process.argv[i + 1] > process.argv[i]) {
+let big1 = -Infinity;
+let big2 = -Infinity;
+
+for (let i = 2; i < process.argv.length; i++) {
+  const num = Number(process.argv[i]);
+
+  if (num > big1) {
     big2 = big1;
-    big1 = Number(process.argv[i + 1]);
-  } else {
-    big2 = big1;
-    big1 = Number(process.argv[i]);
+    big1 = num;
+  } else if (num > big2 && num !== big1) {
+    big2 = num;
   }
-  i++;
 }
-console.log(big2);
+
+if (big2 === -Infinity) {
+  console.log(0);
+} else {
+  console.log(big2);
+}
