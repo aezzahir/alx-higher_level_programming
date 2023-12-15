@@ -6,7 +6,6 @@ import sys
 from model_state import Base, State
 
 from sqlalchemy import (create_engine)
-from sqlalchemy import asc
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
@@ -16,6 +15,6 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    states = session.query(State).filter_by(name="%a%")
+    states = session.query(State).filter(State.name.like('%a%'))
     for state in states:
         print("{}: {}".format(state.id, state.name))
