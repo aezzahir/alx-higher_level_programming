@@ -14,6 +14,6 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    rows = session.query(State).order_by(id)
+    rows = session.query(State).order_by(id.desc())
     for row in rows:
         print(row)
