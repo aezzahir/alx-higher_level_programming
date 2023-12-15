@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-lists all State objects from the database
+ lists all State objects that contain the letter a from the database
 """
 import sys
 from model_state import Base, State
@@ -16,6 +16,6 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    states = session.query(State).order_by(asc(State.id))
+    states = session.query(State).filter_by(name="%a%")
     for state in states:
         print("{}: {}".format(state.id, state.name))
