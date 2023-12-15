@@ -13,8 +13,8 @@ if __name__ == "__main__":
                          user=username, passwd=password,
                          db=dbName, charset="utf8")
     cur = db.cursor()
-    query = "SELECT cities.id, cities.name, (SELECT states.name FROM states "+\
-            "WHERE states.id = cities.state_id) AS state_name FROM cities "+\
+    query = "SELECT cities.id, cities.name, (SELECT states.name FROM states" +\
+            " WHERE states.id = cities.state_id) AS state_name FROM cities " +\
             "ORDER BY cities.id ASC"
     cur.execute(query)
     rows = cur.fetchall()
