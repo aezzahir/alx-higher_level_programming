@@ -6,6 +6,7 @@ import sys
 from model_state import Base, State
 
 from sqlalchemy import (create_engine)
+from sqlalchemy import desc
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
@@ -14,6 +15,6 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    rows = session.query(State).order_by(id.desc())
+    rows = session.query(State).order_by(desc(State.id))
     for row in rows:
         print(row)
