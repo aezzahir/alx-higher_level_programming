@@ -15,4 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    session.query(State).filter_by(id=2).first().name = "New Mexico"
+    try:
+        session.query(State).filter_by(id=2).first().name = "New Mexico"
+    except:
+        pass
