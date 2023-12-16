@@ -21,4 +21,4 @@ if __name__ == "__main__":
     session.add(my_city)
     session.add(my_state)
     session.commit()
-    print(my_state.id)
+    session.close()

@@ -17,7 +17,6 @@ class City(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(128), nullable=True)
     state_id = Column(Integer, ForeignKey('states.id'))
-    state = relationship("State", back_populates="cities")
 
     def __init__(self, name):
         self.name = name
