@@ -18,6 +18,7 @@ if __name__ == "__main__":
     my_state = State("California")
     my_city = City("San Francisco")
     my_state.cities.append(my_city)
+    session.add(my_city)
     session.add(my_state)
     session.commit()
     print(my_state.id)
