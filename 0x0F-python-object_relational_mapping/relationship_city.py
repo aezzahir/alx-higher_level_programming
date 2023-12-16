@@ -4,8 +4,7 @@ The class definition of a City.
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
-from model_state import Base, State
+from relationship_city import Base, State
 
 
 class City(Base):
