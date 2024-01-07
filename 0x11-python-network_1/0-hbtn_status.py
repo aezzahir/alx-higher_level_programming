@@ -1,21 +1,14 @@
 #!/usr/bin/python3
 """
-Write a Python script that fetches https://alx-intranet.hbtn.io/status
-
-You must use the package urllib
-You are not allowed to import any packages other than urllib
-The body of the response must be displayed like the following example (tabulation before -)
-You must use a with statement
+This module data from fetches https://alx-intranet.hbtn.io/status
 """
 import urllib.request
 
-url = "https://alx-intranet.hbtn.io/status"
-
-with urllib.request.urlopen(url) as response:
-    body = response.read()
-
-print("Body response:")
-print("    - type:", type(body))
-print("    - content:", body)
-print("    - utf8 content:", body.decode('utf-8'))
-
+if __name__ == "__main__":
+    req = urllib.request.Request("https://alx-intranet.hbtn.io/status")
+    with urllib.request.urlopen(req) as response:
+        body = response.read()
+        print("Body response:")
+        print("\t- type:", type(body))
+        print("\t- content:", body)
+        print("\t- utf8 content:", body.decode('utf-8'))
