@@ -2,7 +2,8 @@
 """
 2. POST an email #0
 """
-import urllib.request, urllib.parse
+import urllib.request
+import urllib.parse
 import sys
 
 if __name__ == "__main__":
@@ -14,4 +15,3 @@ if __name__ == "__main__":
     with urllib.request.urlopen(req) as response:
         body = response.read().decode('utf-8')
         print(body)
-    
