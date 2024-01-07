@@ -2,11 +2,10 @@
 """
 3. Error code #0
 """
-import urllib.request
-from urllib.error import HTTPError
-import sys
-
 if __name__ == "__main__":
+    import urllib.request
+    from urllib.error import HTTPError
+    import sys
     url = sys.argv[1]
     req = urllib.request.Request(url)
     try:

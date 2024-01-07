@@ -2,11 +2,11 @@
 """
 9. My GitHub!
 """
-import requests
-import sys
-from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
+    import requests
+    import sys
+    from requests.auth import HTTPBasicAuth
     username = sys.argv[1]
     password = sys.argv[2]
     auth = (username, password)

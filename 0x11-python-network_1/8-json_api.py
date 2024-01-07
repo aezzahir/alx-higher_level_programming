@@ -2,11 +2,9 @@
 """
 8. Search API
 """
-
-import requests
-import sys
-
 if __name__ == "__main__":
+    import requests
+    import sys
     url = 'http://0.0.0.0:5000/search_user'
     if len(sys.argv) > 1:
         letter = sys.argv[1]
